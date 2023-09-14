@@ -23,6 +23,7 @@ const Hero = ({
             >
               {btntext}
             </button>
+<<<<<<< Updated upstream
             <div className="grid items-center gap-5 md:gap-3 absolute top-[33vh] lg:top-[27vh] left-[11%] xl:left-0 w-auto h-auto">
               {videos?.map((val, i) => (
                 <Clip key={i} imgsrc={val.imgsrc} clip={val.clip} />
@@ -33,6 +34,10 @@ const Hero = ({
                 <SocialLink key={i} icon={val.icon} />
               ))}
             </div>
+=======
+            <div className="">{video.map(({ val, i } = {}))}</div>
+            <div className=""></div>
+>>>>>>> Stashed changes
           </div>
           <div className="">
             <img
