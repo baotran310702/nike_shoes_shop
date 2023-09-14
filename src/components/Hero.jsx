@@ -1,7 +1,9 @@
 import React from "react";
+import Clip from "./utils/Clip";
+import SocialLink from "./utils/SocialLink";
 
 const Hero = ({
-  heroapi: { title, subtitle, btntext, img, sociallinks, video },
+  heroapi: { title, subtitle, btntext, img, sociallinks, videos },
 }) => {
   return (
     <>
@@ -21,12 +23,16 @@ const Hero = ({
             >
               {btntext}
             </button>
-            <div className="">{
-              video.map({val,i}={
-                
-              })
-            }</div>
-            <div className=""></div>
+            <div className="grid items-center gap-5 md:gap-3 absolute top-[33vh] lg:top-[27vh] left-[11%] xl:left-0 w-auto h-auto">
+              {videos?.map((val, i) => (
+                <Clip key={i} imgsrc={val.imgsrc} clip={val.clip} />
+              ))}
+            </div>
+            <div className="grid items-center absolute top-[33vh] lg:top-[27vh] right-0 gap-3">
+              {sociallinks?.map((val, i) => (
+                <SocialLink key={i} icon={val.icon} />
+              ))}
+            </div>
           </div>
           <div className="">
             <img
