@@ -8,7 +8,9 @@ const Sales = ({ endpoint: { title, items } }) => {
       <div>
         <Title title={title} />
         <div>
-          <Items />
+          {items?.map((item, i) => (
+            <Items {...item} key={i} />
+          ))}
         </div>
       </div>
     </>
