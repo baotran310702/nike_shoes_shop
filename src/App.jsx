@@ -1,13 +1,23 @@
 import React from "react";
-import { Hero, Sales } from "./components";
-import { heroapi, popularsales, topratesales } from "./data/data.js";
+import { FeatureItems, Hero, Sales, TopStories } from "./components";
+import {
+  heroapi,
+  popularsales,
+  topratesales,
+  sneaker,
+  highlight,
+  story,
+} from "./data/data.js";
 
 const App = () => {
   return (
     <main className="flex flex-col gap-16 relative">
       <Hero heroapi={heroapi} />
-      <Sales endpoint={popularsales} />
+      <Sales endpoint={popularsales} ifPopular />
+      <FeatureItems endpoint={highlight} ifPopular />
       <Sales endpoint={topratesales} />
+      <FeatureItems endpoint={sneaker} />
+      <TopStories endpoint={story} />
     </main>
   );
 };
