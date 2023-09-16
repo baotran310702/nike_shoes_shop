@@ -58,7 +58,9 @@ const TopStories = ({ endpoint: { title, news } }) => {
                       {val.title}
                     </h1>
                     <p className="text-sm text-justify lg:text-xs overflow-hidden">
-                      {val.text}
+                      {val.text.length > 175
+                        ? val.text.slice(0, 175) + "..."
+                        : val.text}
                     </p>
                   </div>
                   <div className="flex items-center justify-center px-4 w-full ">
