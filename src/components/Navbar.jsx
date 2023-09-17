@@ -40,8 +40,8 @@ const Navbar = () => {
       <header
         className={
           !navState
-            ? `absolute top-7 left-0 right-0 opacity-100 z-100`
-            : `fixed top-0 left-0 right-0 h-[9vh] flex items-center justify-center opacity-100 z-100 blur-effect-theme`
+            ? `absolute top-7 left-0 right-0 opacity-100 z-50`
+            : `fixed top-0 left-0 right-0 h-[9vh] flex items-center justify-center opacity-100 z-50 blur-effect-theme`
         }
       >
         <nav className="flex items-center justify-between nike-container">
