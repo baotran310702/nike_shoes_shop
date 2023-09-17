@@ -76,7 +76,7 @@ const CartSlice = createSlice({
       let subTotal = 0;
       state.cartItems.forEach((item) => {
         totalQTY += item.cartQuantity;
-        subTotal = item.cartQuantity * item.price;
+        subTotal += item.cartQuantity * item.price;
       });
 
       state.cartQuantity = totalQTY;
