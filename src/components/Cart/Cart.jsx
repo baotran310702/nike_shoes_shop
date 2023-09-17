@@ -3,11 +3,18 @@ import CartCount from "./CartCount";
 import CartEmpty from "./CartEmpty";
 import CartItem from "./CartItem";
 import { useDispatch, useSelector } from "react-redux";
-import { currentState, setCloseCart } from "../../app/CartSlice";
+import {
+  currentCartItems,
+  currentState,
+  setCloseCart,
+} from "../../app/CartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const currentStatus = useSelector(currentState);
+  const listCart = useSelector(currentCartItems);
+
+  console.log(listCart);
 
   const onClickBack = () => {
     dispatch(
@@ -28,8 +35,15 @@ const Cart = () => {
       >
         <div className="blur-effect-theme h-screen max-w-xl w-full absolute right-0">
           <CartCount onCartToggle={onClickBack} />
-          <CartEmpty />
-          <CartItem />
+          {listCart.length == 0 ? (
+            <CartEmpty />
+          ) : (
+            <div>
+              {listCart?.map((item, i) => (
+                <CartItem key={i} item={item} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </>
