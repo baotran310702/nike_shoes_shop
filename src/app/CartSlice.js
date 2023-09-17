@@ -11,6 +11,7 @@ const CartSlice = createSlice({
   name: "cart",
   reducers: {
     setOpenCart: (state, action) => {
+      console.log(action.payload.cartState);
       state.cartState = action.payload.cartState;
     },
     setCloseCart: (state, action) => {
