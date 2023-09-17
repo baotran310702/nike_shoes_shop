@@ -7,7 +7,7 @@ import {
   currentCartItems,
   currentState,
   setCloseCart,
-} from "../../app/CartSlice";
+} from "../../app/CartSlice.js";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -36,13 +36,37 @@ const Cart = () => {
         <div className="blur-effect-theme h-screen max-w-xl w-full absolute right-0">
           <CartCount onCartToggle={onClickBack} />
           {listCart.length == 0 ? (
-            <CartEmpty />
+            <CartEmpty onCartToggle={onClickBack} />
           ) : (
-            <div>
+            <div className="flex flex-col gap-y-7 lg:gap-y-5 overflow-y-scroll items-start justify-start h-[81vh] scroll-hidden scroll-smooth">
               {listCart?.map((item, i) => (
                 <CartItem key={i} item={item} />
               ))}
             </div>
+          )}
+
+          {listCart.length > 0 ? (
+            <div className="fixed bottom-0 bg-white w-full px-5 py-2 grid items-center py-3">
+              <div className="flex items-center justify-between">
+                <h1 className="text-base font-semibold uppercase">SubTotal</h1>
+                <h1 className="text-sm rounded bg-theme-cart text-slate-200 px-1 py-0.5">
+                  $000
+                </h1>
+              </div>
+              <div className="grid items-center justify-items-center gap-2">
+                <p className="text-sm font-medium text-center text-slate-900">
+                  Taxes and Shipping Will Be Calculated At Shipping
+                </p>
+                <button
+                  type="button"
+                  className="button-theme text-white w-full bg-black"
+                >
+                  Check Out
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div></div>
           )}
         </div>
       </div>
