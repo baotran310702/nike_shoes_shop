@@ -1,5 +1,7 @@
 import { StarIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
 import React from "react";
+import { currentState, setAddItems, setCloseCart } from "../../app/CartSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Items = ({
   ifPopular,
@@ -13,6 +15,12 @@ const Items = ({
   rating,
   price,
 }) => {
+  const dispatch = useDispatch();
+
+  const onAddtoCart = () => {
+    const item = { id, title, text, img, color, shadow, price };
+    dispatch(setAddItems(item));
+  };
   return (
     <>
       <div
@@ -47,6 +55,7 @@ const Items = ({
             <button
               type="button"
               className="bg-white/90 blur-effect-theme button-theme p-0.5 shadow shadow-sky-200"
+              onClick={onAddtoCart}
             >
               <ShoppingBagIcon className="icon-style text-slate-900" />
             </button>
