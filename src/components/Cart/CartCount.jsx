@@ -1,13 +1,14 @@
 import React from "react";
 import { ChevronDoubleLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useDispatch } from "react-redux";
-import { setClearCart } from "../../app/CartSlice";
+import { getQTYandPrice, setClearCart } from "../../app/CartSlice";
 
 const CartCount = ({ onCartToggle, cartQuantity }) => {
   const dispatch = useDispatch();
 
   const clearCart = () => {
     dispatch(setClearCart());
+    dispatch(getQTYandPrice());
   };
 
   return (

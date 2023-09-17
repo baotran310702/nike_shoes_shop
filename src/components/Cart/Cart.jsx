@@ -33,6 +33,19 @@ const Cart = () => {
     dispatch(getQTYandPrice());
   };
 
+  const onHideCart = (e) => {
+    dispatch(
+      setCloseCart({
+        cartState: false,
+      })
+    );
+  };
+
+  const preventClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
   return (
     <>
       <div
@@ -42,8 +55,12 @@ const Cart = () => {
              ? "opacity-100 visible translate-x-0 transition-all duration-200"
              : "opacity-0 invisible translate-x-5 transition-all duration-200"
          }`}
+        onClick={onHideCart}
       >
-        <div className="blur-effect-theme h-screen max-w-xl w-full absolute right-0">
+        <div
+          className="blur-effect-theme h-screen max-w-xl w-full absolute right-0"
+          onClick={preventClick}
+        >
           <CartCount onCartToggle={onClickBack} cartQuantity={itemsQTY} />
           {listCart.length == 0 ? (
             <CartEmpty onCartToggle={onClickBack} />

@@ -55,6 +55,7 @@ const CartItem = ({
         cartQuantity,
       })
     );
+    dispatch(getQTYandPrice());
   };
 
   const updateQTYandPrice = () => {
