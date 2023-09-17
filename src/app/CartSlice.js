@@ -3,7 +3,9 @@ import toast from "react-hot-toast";
 
 const initialState = {
   cartState: false,
-  cartItems: [], //Contain id from db
+  cartItems: [], //Contain id from db,
+  cartPrice: 0,
+  cartQuantity: 0,
 };
 
 const CartSlice = createSlice({
@@ -24,11 +26,15 @@ const CartSlice = createSlice({
 
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
-        toast.success(`${action.payload.title} quantity increased!`);
+        toast.success(`${action.payload.title} quantity increased!`, {
+          duration: 850,
+        });
       } else {
         const temp = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(temp);
-        toast.success(`${action.payload.title} added to cart!`);
+        toast.success(`${action.payload.title} added to cart!`, {
+          duration: 850,
+        });
       }
     },
     setRemoveItemsFromCart: (state, action) => {
@@ -36,7 +42,9 @@ const CartSlice = createSlice({
         (item) => item.id !== action.payload.id
       );
       state.cartItems = removedItems;
-      toast.success(`${action.payload.title} has been removed from cart!`);
+      toast.success(`${action.payload.title} has been removed from cart!`, {
+        duration: 850,
+      });
     },
     setDecreasementQTY: (state, action) => {
       const itemIndex = state.cartItems.findIndex(
@@ -58,7 +66,21 @@ const CartSlice = createSlice({
     },
     setClearCart: (state, action) => {
       state.cartItems = [];
-      toast.success("Cart Clear Successfully!");
+      toast.success("Cart Clear Successfully!", { duration: 850 });
+    },
+    setSumPrice: (state, action) => {
+      state.sumPrice = action.payload.sumPrice;
+    },
+    getQTYandPrice: (state, action) => {
+      let totalQTY = 0;
+      let subTotal = 0;
+      state.cartItems.forEach((item) => {
+        totalQTY += item.cartQuantity;
+        subTotal = item.cartQuantity * item.price;
+      });
+
+      state.cartQuantity = totalQTY;
+      state.cartPrice = subTotal;
     },
   },
 });
@@ -71,7 +93,10 @@ export const {
   setIncreasementQTY,
   setDecreasementQTY,
   setClearCart,
+  getQTYandPrice,
 } = CartSlice.actions;
 export default CartSlice.reducer;
 export const currentState = (state) => state.cart.cartState;
 export const currentCartItems = (state) => state.cart.cartItems;
+export const currentSumPrice = (state) => state.cart.cartPrice;
+export const currentQTY = (state) => state.cart.cartQuantity;

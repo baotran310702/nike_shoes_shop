@@ -3,7 +3,7 @@ import { ChevronDoubleLeftIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { useDispatch } from "react-redux";
 import { setClearCart } from "../../app/CartSlice";
 
-const CartCount = ({ onCartToggle }) => {
+const CartCount = ({ onCartToggle, cartQuantity }) => {
   const dispatch = useDispatch();
 
   const clearCart = () => {
@@ -24,7 +24,7 @@ const CartCount = ({ onCartToggle }) => {
             <h1 className="text-base font-medium text-slate-900">
               Your Cart{" "}
               <span className="bg-theme-cart rounded px-1 py-0.5 text-slate-100 font-normal text-xs">
-                (Items)
+                {cartQuantity} Items
               </span>
             </h1>
           </div>

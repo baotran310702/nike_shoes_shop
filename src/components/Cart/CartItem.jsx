@@ -5,6 +5,7 @@ import {
   setRemoveItemsFromCart,
   setIncreasementQTY,
   setDecreasementQTY,
+  getQTYandPrice,
 } from "../../app/CartSlice.js";
 
 const CartItem = ({
@@ -56,6 +57,10 @@ const CartItem = ({
     );
   };
 
+  const updateQTYandPrice = () => {
+    dispatch(getQTYandPrice());
+  };
+
   return (
     <>
       <div className="flex items-center justify-between w-full px-5">
@@ -80,7 +85,10 @@ const CartItem = ({
               <button
                 type="button"
                 className="bg-theme-cart rounded w-6 h-6 lg:w-5 lg:h-5 flex items-center justify-center active:scale-90"
-                onClick={minusItem}
+                onClick={() => {
+                  minusItem();
+                  updateQTYandPrice();
+                }}
               >
                 <MinusIcon className="w-5 h-5 lg:w-4 lg:h-4 text-white stroke-[2]" />
               </button>
@@ -90,7 +98,10 @@ const CartItem = ({
               <button
                 type="button"
                 className="bg-theme-cart rounded w-6 h-6 lg:w-5 lg:h-5 flex items-center justify-center active:scale-90"
-                onClick={plusItem}
+                onClick={() => {
+                  plusItem();
+                  updateQTYandPrice();
+                }}
               >
                 <PlusIcon className="w-5 h-5 lg:w-4 lg:h-4 text-white stroke-[2]" />
               </button>

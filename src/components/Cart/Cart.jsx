@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CartCount from "./CartCount";
 import CartEmpty from "./CartEmpty";
 import CartItem from "./CartItem";
@@ -7,12 +7,17 @@ import {
   currentCartItems,
   currentState,
   setCloseCart,
+  getQTYandPrice,
+  currentSumPrice,
+  currentQTY,
 } from "../../app/CartSlice.js";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const currentStatus = useSelector(currentState);
   const listCart = useSelector(currentCartItems);
+  const sum = useSelector(currentSumPrice);
+  const itemsQTY = useSelector(currentQTY);
 
   console.log(listCart);
 
@@ -23,6 +28,11 @@ const Cart = () => {
       })
     );
   };
+
+  const onCheckOut = () => {
+    dispatch(getQTYandPrice());
+  };
+
   return (
     <>
       <div
@@ -34,7 +44,7 @@ const Cart = () => {
          }`}
       >
         <div className="blur-effect-theme h-screen max-w-xl w-full absolute right-0">
-          <CartCount onCartToggle={onClickBack} />
+          <CartCount onCartToggle={onClickBack} cartQuantity={itemsQTY} />
           {listCart.length == 0 ? (
             <CartEmpty onCartToggle={onClickBack} />
           ) : (
@@ -50,7 +60,7 @@ const Cart = () => {
               <div className="flex items-center justify-between">
                 <h1 className="text-base font-semibold uppercase">SubTotal</h1>
                 <h1 className="text-sm rounded bg-theme-cart text-slate-200 px-1 py-0.5">
-                  $000
+                  ${sum}
                 </h1>
               </div>
               <div className="grid items-center justify-items-center gap-2">
@@ -60,6 +70,7 @@ const Cart = () => {
                 <button
                   type="button"
                   className="button-theme text-white w-full bg-black"
+                  onClick={onCheckOut}
                 >
                   Check Out
                 </button>
