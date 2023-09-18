@@ -11,20 +11,14 @@ import {
   footerAPI,
 } from "./data/data.js";
 import Footer from "./components/Footer";
+import { LandingPage } from "./pages";
 
 const App = () => {
   return (
     <>
       <Navbar />
       <Cart />
-      <main className="flex flex-col gap-16 relative">
-        <Hero heroapi={heroapi} />
-        <Sales endpoint={popularsales} ifPopular />
-        <FeatureItems endpoint={highlight} ifPopular />
-        <Sales endpoint={topratesales} />
-        <FeatureItems endpoint={sneaker} />
-        <TopStories endpoint={story} />
-      </main>
+      <LandingPage />
       <Footer footerAPI={footerAPI} />
     </>
   );
