@@ -1,26 +1,19 @@
 import React from "react";
 import { FeatureItems, Hero, Navbar, Sales, TopStories } from "./components";
 import Cart from "./components/Cart/Cart";
-import {
-  heroapi,
-  popularsales,
-  topratesales,
-  sneaker,
-  highlight,
-  story,
-  footerAPI,
-} from "./data/data.js";
+import { footerAPI } from "./data/data.js";
 import Footer from "./components/Footer";
-import { LandingPage } from "./pages";
+import { LandingPage, LoginPage } from "./pages";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
-    <>
+    <div>
       <Navbar />
       <Cart />
       <LandingPage />
       <Footer footerAPI={footerAPI} />
-    </>
+    </div>
   );
 };
 
