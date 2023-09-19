@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navbar } from "../components";
 import { useDispatch, useSelector } from "react-redux";
 import { currentCartItems, currentSumPrice } from "../app/CartSlice";
@@ -14,7 +14,7 @@ const Checkout = () => {
       <div className="">
         <Navbar isCheckout={true} />
         <div className="relative flex md:flex-col mt-16 lg:mt-16 sm:mt-12">
-          <div className="grid items-center border-solid border rounded-xl px-16 py-8 lg:px-12 md:px-8 sm:px-4 w-7/12 md:w-full ">
+          <div className="grid items-center border-solid border rounded-xl px-16 py-8 lg:px-12 md:px-8 sm:px-6 w-7/12 md:w-full ">
             <div className=" ">
               <h1 className="font-bold text-slate-950 text-2xl">
                 Billing Address
@@ -96,11 +96,11 @@ const Checkout = () => {
               </div>
             </div>
           </div>
-          <div className="w-5/12 md:w-full h-auto p-2 lg:p-12 md:p-8 sm:p-4">
-            <div className="px-4 my-8">
+          <div className="w-5/12 md:w-full h-auto lg:p-12 md:p-8 sm:p-2">
+            <div className="px-4 my-8 md:my-4 sm:my-2">
               <h1 className="font-bold text-slate-950 text-2xl">Your Items</h1>
             </div>
-            <div className="flex flex-col h-[45vh] gap-y-7 lg:gap-y-5 items-start overflow-y-scroll scroll-hidden scroll-smooth">
+            <div className="flex flex-col h-[45vh] sm:h-[30vh] gap-y-7 lg:gap-y-5 items-start overflow-y-scroll scroll-smooth">
               {itemsCart?.map((item, i) => (
                 <CartItem key={i} item={item} />
               ))}
