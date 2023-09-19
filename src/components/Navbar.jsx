@@ -6,11 +6,16 @@ import {
   ShoppingBagIcon,
 } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
-import { setOpenCart, currentQTY } from "../app/CartSlice";
+import { setOpenCart, currentQTY, setCloseCart } from "../app/CartSlice";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ isCheckout }) => {
   const [navState, setNavState] = useState(false);
   const dispatch = useDispatch();
+
+  const hideCart = () => {
+    dispatch(setCloseCart(false));
+  };
 
   const itemsQuantity = useSelector(currentQTY);
 
@@ -26,11 +31,18 @@ const Navbar = () => {
     if (window.scrollY > 30) {
       setNavState(true);
     } else {
-      setNavState(false);
+      if (isCheckout) {
+        setNavState(true);
+      } else {
+        setNavState(false);
+      }
     }
   };
   useEffect(() => {
     window.addEventListener("scroll", onNavScroll);
+    if (isCheckout) {
+      setNavState(true);
+    }
     return () => {
       window.removeEventListener("scroll", onNavScroll);
     };
@@ -45,12 +57,14 @@ const Navbar = () => {
         }
       >
         <nav className="flex items-center justify-between nike-container">
-          <div className="flex items-center">
-            <img
-              src={logo}
-              alt="logo/img"
-              className={`w-16 h-auto ${navState && "filter brightness-0"}`}
-            ></img>
+          <div className="flex items-center" onClick={hideCart}>
+            <Link to="/">
+              <img
+                src={logo}
+                alt="logo/img"
+                className={`w-16 h-auto ${navState && "filter brightness-0"}`}
+              ></img>
+            </Link>
           </div>
           <ul className="flex items-center justify-center gap-2">
             <li className="grid items-center">
@@ -81,7 +95,7 @@ const Navbar = () => {
                   }`}
                 />
                 <div
-                  className={`absolute top-4 right-0 w-4 h-4 font-medium rounded-full flex items-center justify-center cursor-pointer hover:scale-110
+                  className={`absolute text-xs top-4 right-0 w-4 h-4 font-medium rounded-full flex items-center justify-center cursor-pointer hover:scale-110
                     ${
                       navState
                         ? "text-slate-200 bg-slate-900 shadow shadow-slate-900"

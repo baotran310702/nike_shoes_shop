@@ -11,6 +11,7 @@ import {
   currentSumPrice,
   currentQTY,
 } from "../../app/CartSlice.js";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -84,13 +85,18 @@ const Cart = () => {
                 <p className="text-sm font-medium text-center text-slate-900">
                   Taxes and Shipping Will Be Calculated At Shipping
                 </p>
-                <button
-                  type="button"
+                <Link
+                  to={"/checkout"}
                   className="button-theme text-white w-full bg-black"
-                  onClick={onCheckOut}
                 >
-                  Check Out
-                </button>
+                  <button
+                    type="button"
+                    className="button-theme text-white w-full bg-black"
+                    onClick={onCheckOut}
+                  >
+                    Check Out
+                  </button>
+                </Link>
               </div>
             </div>
           ) : (
