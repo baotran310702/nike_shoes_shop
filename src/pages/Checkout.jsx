@@ -13,7 +13,7 @@ const Checkout = () => {
     <>
       <div className="">
         <Navbar isCheckout={true} />
-        <div className="relative flex md:flex-col mt-24 lg:mt-16 sm:mt-12">
+        <div className="relative flex md:flex-col mt-16 lg:mt-16 sm:mt-12">
           <div className="grid items-center border-solid border rounded-xl px-16 py-8 lg:px-12 md:px-8 sm:px-4 w-7/12 md:w-full ">
             <div className=" ">
               <h1 className="font-bold text-slate-950 text-2xl">
@@ -100,7 +100,7 @@ const Checkout = () => {
             <div className="px-4 my-8">
               <h1 className="font-bold text-slate-950 text-2xl">Your Items</h1>
             </div>
-            <div className="flex flex-col gap-y-7 lg:gap-y-5 items-start ">
+            <div className="flex flex-col h-[45vh] gap-y-7 lg:gap-y-5 items-start overflow-y-scroll scroll-hidden scroll-smooth">
               {itemsCart?.map((item, i) => (
                 <CartItem key={i} item={item} />
               ))}
