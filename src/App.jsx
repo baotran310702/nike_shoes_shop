@@ -4,7 +4,6 @@ import Cart from "./components/Cart/Cart";
 import { footerAPI } from "./data/data.js";
 import Footer from "./components/Footer";
 import { LandingPage, LoginPage } from "./pages";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
   return (
