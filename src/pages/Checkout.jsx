@@ -1,28 +1,34 @@
 import React, { useEffect } from "react";
 import { Navbar } from "../components";
 import { useDispatch, useSelector } from "react-redux";
-import { currentCartItems, currentSumPrice } from "../app/CartSlice";
+import {
+  currentCartItems,
+  currentSumPrice,
+  setCloseCart,
+} from "../app/CartSlice";
 import CartItem from "../components/Cart/CartItem";
+import { setStateNav } from "../app/NavbarSlice";
 
 const Checkout = () => {
   const dispatch = useDispatch();
+  window.scrollTo(0, 0);
+
   const itemsCart = useSelector(currentCartItems);
   const subTotal = useSelector(currentSumPrice);
 
   return (
     <>
       <div className="">
-        <Navbar isCheckout={true} />
-        <div className="relative flex md:flex-col mt-16 lg:mt-16 sm:mt-12">
-          <div className="grid items-center border-solid border rounded-xl px-16 py-8 lg:px-12 md:px-8 sm:px-6 w-7/12 md:w-full ">
+        <div className="relative flex md:flex-col mt-16 lg:mt-16 sm:mt-12 mb-16">
+          <div className="grid items-center border-solid border rounded-xl px-16 py-8 lg:px-8 md:px-8 sm:px-6 w-7/12 md:w-full ">
             <div className=" ">
               <h1 className="font-bold text-slate-950 text-2xl">
                 Billing Address
               </h1>
             </div>
-            <div className="grid grid-cols-2">
+            <div className="grid grid-cols-2 ">
               <div className="flex flex-col">
-                <label className="block mb-2 text-sm font-medium text-gray-900 my-2">
+                <label className="block  text-sm font-medium text-gray-900 my-2">
                   First Name
                 </label>
                 <input
@@ -31,7 +37,7 @@ const Checkout = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <label className="block mb-2 text-sm font-medium text-gray-900 my-2">
+                <label className="block  text-sm font-medium text-gray-900 my-2">
                   Last Name
                 </label>
                 <input
@@ -100,7 +106,7 @@ const Checkout = () => {
             <div className="px-4 my-8 md:my-4 sm:my-2">
               <h1 className="font-bold text-slate-950 text-2xl">Your Items</h1>
             </div>
-            <div className="flex flex-col h-[45vh] sm:h-[30vh] gap-y-7 lg:gap-y-5 items-start overflow-y-scroll scroll-smooth">
+            <div className="flex flex-col h-[45vh] sm:h-[30vh] gap-y-7 lg:gap-y-5 items-start overflow-y-scroll scroll-hidden scroll-smooth">
               {itemsCart?.map((item, i) => (
                 <CartItem key={i} item={item} />
               ))}

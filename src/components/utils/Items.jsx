@@ -36,7 +36,7 @@ const Items = ({
         className={`relative bg-gradient-to-b from-blue-900 to-blue-500 shadow-lg shadow-blue-500 grid items-center ${
           ifPopular ? "justify-items-start" : "justify-items-center"
         } rounded-xl px-5 py-6
-        transition-all duration-700 ease-in-out w-full hover:scale-105`}
+        transition-all duration-700 ease-in-out w-full hover:scale-105 z-20`}
       >
         <div
           className={`grid items-center ${

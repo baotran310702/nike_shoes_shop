@@ -12,6 +12,7 @@ import {
   currentQTY,
 } from "../../app/CartSlice.js";
 import { Link } from "react-router-dom";
+import { setStateNav } from "../../app/NavbarSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,16 @@ const Cart = () => {
 
   const onCheckOut = () => {
     dispatch(getQTYandPrice());
+    dispatch(
+      setStateNav({
+        navState: true,
+      })
+    );
+    dispatch(
+      setCloseCart({
+        cartState: false,
+      })
+    );
   };
 
   const onHideCart = (e) => {

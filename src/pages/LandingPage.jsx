@@ -10,6 +10,8 @@ import {
   footerAPI,
 } from "../data/data.js";
 import Footer from "../components/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { setStateNav } from "../app/NavbarSlice";
 
 const LandingPage = () => {
   return (

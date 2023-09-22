@@ -7,14 +7,16 @@ import {
 } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { setOpenCart, currentQTY, setCloseCart } from "../app/CartSlice";
+import { setStateNav, currentNavState } from "../app/NavbarSlice";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ isCheckout }) => {
+const Navbar = () => {
   const [navState, setNavState] = useState(false);
   const dispatch = useDispatch();
-
+  const isCheckout = useSelector(currentNavState);
   const hideCart = () => {
     dispatch(setCloseCart(false));
+    dispatch(setStateNav({ navState: false }));
   };
 
   const itemsQuantity = useSelector(currentQTY);
@@ -30,23 +32,20 @@ const Navbar = ({ isCheckout }) => {
   const onNavScroll = () => {
     if (window.scrollY > 30) {
       setNavState(true);
+    } else if (isCheckout) {
+      setNavState(true);
     } else {
-      if (isCheckout) {
-        setNavState(true);
-      } else {
-        setNavState(false);
-      }
+      setNavState(false);
     }
   };
   useEffect(() => {
     window.addEventListener("scroll", onNavScroll);
-    if (isCheckout) {
-      setNavState(true);
-    }
+    setNavState(isCheckout);
+
     return () => {
       window.removeEventListener("scroll", onNavScroll);
     };
-  }, []);
+  }, [isCheckout]);
   return (
     <>
       <header

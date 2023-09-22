@@ -13,13 +13,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={Store}>
       <Toaster position="top-center" reverseOrder={false} />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/checkout" element={<Checkout />} />
-        </Routes>
-      </BrowserRouter>
+      <App />
     </Provider>
   </React.StrictMode>
 );
