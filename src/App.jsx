@@ -5,7 +5,7 @@ import { footerAPI } from "./data/data.js";
 import Footer from "./components/Footer";
 import { LandingPage, LoginPage, Checkout } from "./pages";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
 const App = () => {
   return (
@@ -18,8 +18,8 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
+        <Footer footerAPI={footerAPI} />
       </BrowserRouter>
-      <Footer footerAPI={footerAPI} />
     </div>
   );
 };

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { setHiddenNav } from "../app/NavbarSlice";
+import { setHiddenFooter } from "../app/FooterSlice";
+import { useDispatch } from "react-redux";
 
 function LoginForm() {
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
@@ -15,8 +19,21 @@ function LoginForm() {
     console.log(e.target.value);
   };
 
+  const loginEvent = () => {
+    dispatch(
+      setHiddenNav({
+        isHidden: true,
+      })
+    );
+    dispatch(
+      setHiddenFooter({
+        isHidden: true,
+      })
+    );
+  };
+
   return (
-    <section className="bg-theme ">
+    <section className="bg-theme h-[66vh] lg:h-[65vh]">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
@@ -89,10 +106,11 @@ function LoginForm() {
               </div>
               <Link to={"/"}>
                 <button
+                  onClick={loginEvent}
                   type="button"
                   className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                 >
-                  Sign up
+                  Sign In
                 </button>
               </Link>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">

@@ -1,18 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import nikeshoe from "../assets/sneaker.png";
 import logo from "../assets/logo.png";
-import { heroapi } from "../data/data";
-import Login from "../components/LoginForm";
+
 import { LoginForm } from "../components";
+import { useDispatch } from "react-redux";
+import { setHiddenNav } from "../app/NavbarSlice";
+import { setHiddenFooter } from "../app/FooterSlice";
 
 const LoginPage = () => {
-  const iconSocial = heroapi.sociallinks;
-  console.log(iconSocial);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(
+      setHiddenNav({
+        isHidden: false,
+      })
+    );
+    dispatch(
+      setHiddenFooter({
+        isHidden: false,
+      })
+    );
+  });
+
   return (
     <main className="flex flex-col gap-16 relative ">
       <div className="grid grid-cols-2 sm:grid-cols-1 h-auto">
         <div className="relative">
-          <div className="bg-theme clip-path h-[75vh] lg:h-[65vh] sm:h-[55vh] w-full absolute top-0 left-0 ring-0 opacity-100 z-20"></div>
+          <div className="bg-theme h-[66vh] lg:h-[65vh] sm:h-[55vh] w-full absolute top-0 left-0 ring-0 opacity-100 z-20"></div>
           <div className="h-[75vh] lg:h-[65vh] sm:h-[55vh] w-full relative z-20 grid items-end justify-items-center align-middle">
             <img
               src={logo}

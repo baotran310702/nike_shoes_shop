@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FeatureItems, Hero, Sales, TopStories } from "../components";
 import {
   heroapi,
@@ -11,9 +11,23 @@ import {
 } from "../data/data.js";
 import Footer from "../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { setStateNav } from "../app/NavbarSlice";
+import { setHiddenFooter } from "../app/FooterSlice";
+import { setHiddenNav } from "../app/NavbarSlice";
 
 const LandingPage = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(
+      setHiddenFooter({
+        isHidden: true,
+      })
+    );
+    dispatch(
+      setHiddenNav({
+        isHidden: true,
+      })
+    );
+  }, []);
   return (
     <>
       <main className="flex flex-col gap-16 relative">

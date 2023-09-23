@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import CartSlice from "./CartSlice.js";
 import NavbarSlice from "./NavbarSlice.js";
+import FooterSlice from "./FooterSlice.js";
 
 const Store = configureStore({
   reducer: {
     cart: CartSlice,
     navbar: NavbarSlice,
+    footer: FooterSlice,
   },
 });
 
