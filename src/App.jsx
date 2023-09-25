@@ -3,7 +3,7 @@ import { FeatureItems, Hero, Navbar, Sales, TopStories } from "./components";
 import Cart from "./components/Cart/Cart";
 import { footerAPI } from "./data/data.js";
 import Footer from "./components/Footer";
-import { LandingPage, LoginPage, Checkout } from "./pages";
+import { LandingPage, LoginPage, Checkout } from "./user_pages";
 
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
