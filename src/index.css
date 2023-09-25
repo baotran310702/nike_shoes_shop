@@ -61,6 +61,10 @@
     @apply h-6 w-6 sm:h-5 sm:w-5 text-slate-100 cursor-pointer transition-all duration-100 active:scale-110 leading-tight;
   }
 
+  .icon-sidebar {
+    @apply w-4 h-4 mr-1;
+  }
+
   /* text-gradient */
   .text-gradient {
     @apply text-transparent bg-clip-text bg-gradient-to-tr from-blue-500 to-sky-500;
@@ -103,5 +107,10 @@
   }
   .transitions-shake {
     animation: shake 0.5s ease-in-out;
+  }
+
+  /*item sidebar*/
+  .side-items {
+    @apply font-thin text-sm w-[100%] p-4 flex rounded-lg items-center justify-start hover:bg-red-600 cursor-pointer;
   }
 }

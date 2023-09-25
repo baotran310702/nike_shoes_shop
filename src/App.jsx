@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import { LandingPage, LoginPage, Checkout } from "./user_pages";
 
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import ListShoes from "./user_pages/ListShoes";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/checkout" element={<Checkout />} />
+          <Route path="/list-shoes" element={<ListShoes />} />
         </Routes>
         <Footer footerAPI={footerAPI} />
       </BrowserRouter>

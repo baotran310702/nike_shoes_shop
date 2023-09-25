@@ -35,8 +35,7 @@ function LoginForm() {
   const loginEvent = async () => {
     //handle logic author - authen
     console.log(userName, password);
-
-    login(userName, password)
+    ~login(userName, password)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
         navigate("/");
