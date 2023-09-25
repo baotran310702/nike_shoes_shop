@@ -1,36 +1,61 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
-import { setHiddenNav } from "../app/NavbarSlice";
-import { setHiddenFooter } from "../app/FooterSlice";
+import { Link, useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
+import { ExclamationCircleIcon } from "@heroicons/react/24/solid";
+import { authen, login } from "../utils/services";
 
 function LoginForm() {
   const [userName, setUsername] = useState("");
+  const [regexEmail, setRegexEmail] = useState(true);
   const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  //Validate Username
+  const handleRegex = (e) => {
+    var regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if (regex.test(userName)) {
+      setRegexEmail(true);
+    } else {
+      setRegexEmail(false);
+    }
+  };
 
   const handleUsername = (e) => {
     setUsername(e.target.value);
-    console.log(e.target.value);
+    console.log(userName);
   };
   const handlePassword = (e) => {
     setPassword(e.target.value);
-    console.log(e.target.value);
+    console.log(password);
   };
 
-  const loginEvent = () => {
-    dispatch(
-      setHiddenNav({
-        isHidden: true,
+  const loginEvent = async () => {
+    //handle logic author - authen
+    console.log(userName, password);
+
+    login(userName, password)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        navigate("/");
       })
-    );
-    dispatch(
-      setHiddenFooter({
-        isHidden: true,
-      })
-    );
+      .catch((res) => {
+        alert("username or password failed");
+      });
   };
+
+  useEffect(() => {
+    const currentToken = localStorage.getItem("token");
+    authen(currentToken)
+      .then((res) => {
+        navigate("/");
+      })
+      .catch((res) => {
+        localStorage.removeItem("token");
+      });
+  }, []);
 
   return (
     <section className="bg-theme h-[66vh] lg:h-[65vh]">
@@ -52,16 +77,26 @@ function LoginForm() {
                   type="email"
                   name="email"
                   id="email"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  className={`bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500`}
                   placeholder="name@company.com"
                   required=""
                   value={userName}
                   onChange={handleUsername}
+                  onBlur={handleRegex}
                 />
 
-                <div className="">
-                  <div className="relative px-3 py-2 text-xs font-medium  text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm">
-                    Invalid email address
+                <div
+                  className={`flex justify-center ${
+                    regexEmail ? "hidden" : ""
+                  }`}
+                >
+                  <div className="absolute px-3 py-2 my-1 transitions-shake text-xs font-medium flex justify-center items-center text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm">
+                    <ExclamationCircleIcon className="w-5 h-5 mr-1" />
+                    <p>
+                      {" "}
+                      Invalid email address, email must contain '@' and domain
+                      must exist.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -110,15 +145,15 @@ function LoginForm() {
                   Forgot password?
                 </a>
               </div>
-              <Link to={"/"}>
-                <button
-                  onClick={loginEvent}
-                  type="button"
-                  className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                >
-                  Sign In
-                </button>
-              </Link>
+
+              <button
+                onClick={loginEvent}
+                type="button"
+                className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+              >
+                Sign In
+              </button>
+
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Don’t have an account yet?{" "}
                 <a
