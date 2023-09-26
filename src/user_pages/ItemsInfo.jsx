@@ -81,7 +81,15 @@ const ItemsInfo = () => {
               </div>
               <div className="grid grid-cols-3 grid-rows-3 items-center justify-items-center">
                 {mapSize.map((size, index) => (
-                  <p key={index} className="size-shoes">
+                  <p
+                    key={size}
+                    className={`size-shoes ${
+                      sizeShoes == size ? "border-slate-950" : ""
+                    }`}
+                    onClick={() => {
+                      setSizeShoes(size);
+                    }}
+                  >
                     {size}
                   </p>
                 ))}
