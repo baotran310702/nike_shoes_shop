@@ -18,7 +18,7 @@ const Sidebar = () => {
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
 
-      // Calculate a threshold (e.g., 100 pixels) from the bottom
+      // Calculate a threshold, x px from the bottom
       const threshold = 200;
 
       if (scrollY + windowHeight + threshold >= documentHeight) {
