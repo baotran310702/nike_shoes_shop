@@ -7,6 +7,7 @@ import { LandingPage, LoginPage, Checkout } from "./user_pages";
 
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import ListShoes from "./user_pages/ListShoes";
+import ItemsInfo from "./user_pages/ItemsInfo";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/list-shoes" element={<ListShoes />} />
+          <Route path="/items/:id" element={<ItemsInfo />} />
         </Routes>
         <Footer footerAPI={footerAPI} />
       </BrowserRouter>

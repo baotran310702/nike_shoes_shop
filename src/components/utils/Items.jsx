@@ -2,6 +2,7 @@ import { StarIcon, ShoppingBagIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import { setAddItems, setOpenCart, getQTYandPrice } from "../../app/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Items = ({
   ifPopular,
@@ -16,6 +17,7 @@ const Items = ({
   price,
 }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onAddtoCart = () => {
     const item = { id, title, text, img, color, shadow, price };
@@ -37,6 +39,9 @@ const Items = ({
           ifPopular ? "justify-items-start" : "justify-items-center"
         } rounded-xl px-5 py-6
         transition-all duration-700 ease-in-out w-full hover:scale-105 z-20`}
+        onClick={() => {
+          navigate("/items/" + id);
+        }}
       >
         <div
           className={`grid items-center ${

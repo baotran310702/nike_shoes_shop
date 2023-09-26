@@ -74,11 +74,24 @@ const Navbar = () => {
             </div>
             <ul className="flex items-center justify-center gap-2">
               <li className="grid items-center">
-                <MagnifyingGlassIcon
-                  className={`icon-style && ${
-                    navState && "text-slate-900 transition-all duration-300 "
+                <div
+                  className={`flex items-center border px-2 rounded-2xl ${
+                    navState && "border-slate-700"
                   }`}
-                />
+                >
+                  <MagnifyingGlassIcon
+                    className={`icon-style mr-1 && ${
+                      navState && "text-slate-900 transition-all duration-300 "
+                    }`}
+                  />
+                  <input
+                    className={`outline-none w-56 h-10 rounded-xl bg-transparent ${
+                      navState ? "text-slate-900" : "text-slate-100"
+                    } `}
+                    type="text"
+                    placeholder="Search..."
+                  />
+                </div>
               </li>
               <li className="grid items-center">
                 <HeartIcon
