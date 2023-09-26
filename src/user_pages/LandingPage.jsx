@@ -17,6 +17,7 @@ import { setHiddenNav } from "../app/NavbarSlice";
 const LandingPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(
       setHiddenFooter({
         isHidden: true,

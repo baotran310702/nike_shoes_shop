@@ -3,6 +3,7 @@ import React from "react";
 import { setAddItems, setOpenCart, getQTYandPrice } from "../../app/CartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
+import { setItems } from "../../app/ItemsSlice";
 
 const Items = ({
   ifPopular,
@@ -18,9 +19,9 @@ const Items = ({
 }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const item = { id, title, text, img, color, shadow, price, rating };
 
   const onAddtoCart = () => {
-    const item = { id, title, text, img, color, shadow, price };
     dispatch(setAddItems(item));
   };
 
@@ -39,8 +40,9 @@ const Items = ({
           ifPopular ? "justify-items-start" : "justify-items-center"
         } rounded-xl px-5 py-6
         transition-all duration-700 ease-in-out w-full hover:scale-105 z-20`}
-        onClick={() => {
-          navigate("/items/" + id);
+        onClick={(e) => {
+          dispatch(setItems({ Item: item }));
+          navigate("/itemsInfor");
         }}
       >
         <div
@@ -69,7 +71,9 @@ const Items = ({
             <button
               type="button"
               className="bg-white/90 blur-effect-theme button-theme p-0.5 shadow shadow-sky-200"
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 onAddtoCart();
                 updateQTYandPrice();
               }}
@@ -79,7 +83,9 @@ const Items = ({
             <button
               type="button"
               className="bg-white/90 blur-effect-theme button-theme p-1.5 shadow shadow-sky-200 text-sm text-black"
-              onClick={() => {
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
                 onAddtoCart();
                 onToggleCart();
                 updateQTYandPrice();

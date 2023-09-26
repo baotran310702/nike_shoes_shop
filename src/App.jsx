@@ -20,7 +20,7 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/list-shoes" element={<ListShoes />} />
-          <Route path="/items/:id" element={<ItemsInfo />} />
+          <Route path="/itemsInfor" element={<ItemsInfo />} />
         </Routes>
         <Footer footerAPI={footerAPI} />
       </BrowserRouter>

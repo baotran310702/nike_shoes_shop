@@ -113,4 +113,9 @@
   .side-items {
     @apply font-thin text-sm w-[100%] p-4 flex rounded-lg items-center justify-start hover:bg-sky-100 cursor-pointer;
   }
+
+  /*size shoes*/
+  .size-shoes {
+    @apply text-lg border border-slate-300 px-12 py-2 m-2 cursor-pointer hover:border-slate-950;
+  }
 }
