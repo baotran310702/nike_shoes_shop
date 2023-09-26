@@ -1,10 +1,12 @@
 import React from "react";
 import Clip from "./utils/Clip";
 import SocialLink from "./utils/SocialLink";
+import { useNavigate } from "react-router-dom";
 
 const Hero = ({
   heroapi: { title, subtitle, btntext, img, sociallinks, videos },
 }) => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="relative h-auto w-auto flex flex-col">
@@ -20,6 +22,9 @@ const Hero = ({
             <button
               type="button"
               className="button-theme bg-slate-200 shadow-slate-200 rounded-xl my-5"
+              onClick={() => {
+                navigate("/list-shoes");
+              }}
             >
               {btntext}
             </button>

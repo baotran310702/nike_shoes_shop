@@ -19,7 +19,7 @@ const Sidebar = () => {
       const documentHeight = document.documentElement.scrollHeight;
 
       // Calculate a threshold (e.g., 100 pixels) from the bottom
-      const threshold = 300;
+      const threshold = 200;
 
       if (scrollY + windowHeight + threshold >= documentHeight) {
         setIsAtEnd(true);
@@ -38,12 +38,12 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="relative left-0 top-10">
+      <div className="relative left-0 w-full">
         <div
           className={`${
             !IsAtEnd
-              ? "fixed grid grid-cols-1 lg:flex items-center justify-items-start w-full lg:w-screen h-auto lg:h-16 md:h-12 gap-1 mt-12 p-2 shadow shadow-slate-600 text-slate-800 overflow-x-scroll scroll-smooth scroll-hidden"
-              : "relative grid grid-cols-1 lg:flex items-center justify-items-start w-full lg:w-screen h-auto lg:h-16 md:h-12 gap-1 mt-12 p-2 shadow shadow-slate-600 text-slate-800 overflow-x-scroll scroll-smooth scroll-hidden"
+              ? "fixed md:absolute grid grid-cols-1 lg:flex items-center justify-items-start w-1/5 lg:w-screen h-auto lg:h-16 md:h-12 gap-1 p-4 shadow shadow-slate-600 text-slate-800 overflow-x-scroll scroll-smooth scroll-hidden "
+              : "relative grid grid-cols-1 lg:flex items-center justify-items-start w-full lg:w-screen h-auto lg:h-16 md:h-12 gap-1 p-4 shadow shadow-slate-600 text-slate-800 overflow-x-scroll scroll-smooth scroll-hidden "
           }`}
         >
           <div className="font-semibold text-xl flex justify-center items-center">

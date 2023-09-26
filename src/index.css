@@ -111,6 +111,6 @@
 
   /*item sidebar*/
   .side-items {
-    @apply font-thin text-sm w-[100%] p-4 flex rounded-lg items-center justify-start hover:bg-red-600 cursor-pointer;
+    @apply font-thin text-sm w-[100%] p-4 flex rounded-lg items-center justify-start hover:bg-sky-100 cursor-pointer;
   }
 }
