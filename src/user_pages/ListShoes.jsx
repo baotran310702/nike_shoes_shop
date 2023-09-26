@@ -38,7 +38,7 @@ const ListShoes = () => {
           <div className="col-span-1 lg:col-span-1 w-full">
             <Sidebar />
           </div>
-          <div className="col-span-4 lg:col-span-1 lg:mt-20 p-4">
+          <div className="col-span-4 lg:col-span-1 lg:mt-20 p-4 md:mt-12 sm:mt-8">
             <div>
               <div className="relative">
                 <div
