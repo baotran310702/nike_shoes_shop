@@ -35,5 +35,3 @@ Deployed <a href="nike-shoes-store-baotran.vercel.app">here</a>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799676/shoes7_b1sjf0.png" />
 
 
-
-#3
