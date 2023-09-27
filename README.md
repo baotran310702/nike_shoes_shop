@@ -9,7 +9,7 @@ Currently, two official plugins are available:
 
 # Introduction about my website
 
-Deployed <a href="nike-shoes-store-baotran.vercel.app">here</a>
+Deployed here: <a href="nike-shoes-store-baotran.vercel.app">nike-shoes-store-baotran.vercel.app</a>
 
 # Login UI
 
