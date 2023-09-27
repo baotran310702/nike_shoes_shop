@@ -8,15 +8,25 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 #Introduction about my website
-Deployed at:nike-shoes-store-baotran.vercel.app
+
+Deployed <a href="nike-shoes-store-baotran.vercel.app">here</a>
 
 #Login UI
+
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799676/shoes8_txp5lz.png" />
 
 #Landing Page
+
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799680/shoes_bibt0d.png"/>
-<img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799681/shoes1_flx2mt.png"/>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799681/shoes1_flx2mt.png"/>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799681/shoes3_mvctdf.png"/>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799681/shoes4_zbpekp.png"/>
+
+#Cart
+
+<img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799682/shoes5_tf1qcn.png"/>
+
+#Checkout page
+
+<img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799675/shoes6_i4hiv3.png"/>
 
