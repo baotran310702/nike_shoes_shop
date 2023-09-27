@@ -17,4 +17,6 @@ Deployed at:nike-shoes-store-baotran.vercel.app
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799680/shoes_bibt0d.png"/>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799681/shoes1_flx2mt.png"/>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799681/shoes1_flx2mt.png"/>
+<img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799681/shoes3_mvctdf.png"/>
+<img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799681/shoes4_zbpekp.png"/>
 
