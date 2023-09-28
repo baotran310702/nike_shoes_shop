@@ -150,6 +150,12 @@ const Navbar = () => {
                         setUser(!user);
                       }, 1250);
                     }}
+                    onBlur={() => {
+                      console.log("component blur");
+                      setTimeout(() => {
+                        setUser(!user);
+                      }, 1250);
+                    }}
                   >
                     <UserTippy userState={user} />
                   </div>
