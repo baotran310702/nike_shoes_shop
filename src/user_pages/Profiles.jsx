@@ -70,18 +70,23 @@ const Profiles = () => {
                 </button>
                 <div className="leading-10 w-full">
                   <input
-                    className="text-3xl font-semibold"
+                    className="text-3xl font-semibold outline-transparent "
                     defaultValue={"Lee Sang Hyeok"}
                     onChange={onChangeName}
                     readOnly={false}
                   ></input>
                   <h2>
                     Age{" "}
-                    <input defaultValue={"27"} onChange={onChangeAge}></input>
+                    <input
+                      className="outline-transparent"
+                      defaultValue={"27"}
+                      onChange={onChangeAge}
+                    ></input>
                   </h2>
                   <div>
                     Dob{" "}
                     <input
+                      className="border-opacity-95 rounded-lg border-sky-600"
                       defaultValue={"2000-01-01"}
                       type="date"
                       onChange={onChangeDob}
@@ -90,6 +95,7 @@ const Profiles = () => {
                   <div>
                     Email:{" "}
                     <input
+                      className="outline-transparent"
                       defaultValue={"leesanghyeok@gmail.com"}
                       onChange={onChangeEmail}
                     ></input>
@@ -97,6 +103,7 @@ const Profiles = () => {
                   <div>
                     Phone:{" "}
                     <input
+                      className="outline-transparent"
                       defaultValue={"0999 xxx xxx"}
                       onChange={onChangePhone}
                     ></input>
@@ -112,16 +119,16 @@ const Profiles = () => {
                     {changePass && (
                       <div className="flex flex-col">
                         <input
-                          className="border mb-4 border-slate-700 rounded-md text-sm w-1/2 h-8"
-                          placeholder="  Type old password..."
+                          className="border mb-4 border-slate-700 rounded-md text-sm w-1/2 h-8 p-2"
+                          placeholder="Type old password..."
                         />
                         <input
-                          className="border mb-4 border-slate-700 rounded-md text-sm w-1/2 h-8"
-                          placeholder="  Type your new password..."
+                          className="border mb-4 border-slate-700 rounded-md text-sm w-1/2 h-8 p-2"
+                          placeholder="Type your new password..."
                         />
                         <input
-                          className="border mb-4 border-slate-700 rounded-md text-sm w-1/2 h-8"
-                          placeholder="  Rewrite new password..."
+                          className="border mb-4 border-slate-700 rounded-md text-sm w-1/2 h-8 p-2"
+                          placeholder="Rewrite new password..."
                         />
                       </div>
                     )}
