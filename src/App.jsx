@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FeatureItems, Hero, Navbar, Sales, TopStories } from "./components";
 import Cart from "./components/Cart/Cart";
 import { footerAPI } from "./data/data.js";
@@ -11,6 +11,9 @@ import ItemsInfo from "./user_pages/ItemsInfo";
 import Profiles from "./user_pages/Profiles";
 
 const App = () => {
+  useEffect(() => {
+    document.title = "Bao's Nike Store";
+  });
   return (
     <div>
       <BrowserRouter>
