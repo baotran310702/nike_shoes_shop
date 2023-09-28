@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { FeatureItems, Hero, Navbar, Sales, TopStories } from "./components";
 import Cart from "./components/Cart/Cart";
 import { footerAPI } from "./data/data.js";

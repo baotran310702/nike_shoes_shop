@@ -4,6 +4,7 @@ import {
   HeartIcon,
   MagnifyingGlassIcon,
   ShoppingBagIcon,
+  UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
 import { setOpenCart, currentQTY, setCloseCart } from "../app/CartSlice";
@@ -13,13 +14,15 @@ import {
   currentHidden,
 } from "../app/NavbarSlice";
 import { Link } from "react-router-dom";
+import UserTippy from "./UserTippy/UserTippy";
 
 const Navbar = () => {
   const [navState, setNavState] = useState(false);
+  const [user, setUser] = useState(false);
   const dispatch = useDispatch();
   const isCheckout = useSelector(currentNavState);
   const isHidden = useSelector(currentHidden);
-  console.log(isHidden);
+
   const hideCart = () => {
     dispatch(setCloseCart(false));
     dispatch(setStateNav({ navState: false }));
@@ -34,6 +37,11 @@ const Navbar = () => {
       })
     );
   };
+
+  const userIconClick = () => {
+    setUser(!user);
+  };
+  console.log(user);
 
   const onNavScroll = () => {
     if (window.scrollY > 30) {
@@ -85,7 +93,7 @@ const Navbar = () => {
                     }`}
                   />
                   <input
-                    className={`outline-none w-56 h-10 rounded-xl bg-transparent ${
+                    className={`outline-none w-56 md:w-48 sm:w-12 h-10 rounded-xl bg-transparent ${
                       navState ? "text-slate-900" : "text-slate-100"
                     } `}
                     type="text"
@@ -124,6 +132,28 @@ const Navbar = () => {
                     {itemsQuantity}
                   </div>
                 </button>
+              </li>
+              <li className="grid items-center">
+                <UserCircleIcon
+                  className={`icon-style && ${
+                    navState && "text-slate-900 transition-all duration-300"
+                  }`}
+                  onClick={userIconClick}
+                />
+                {user && (
+                  <div
+                    className={`absolute ${
+                      navState ? "top-14" : "top-12"
+                    } right-8 md:right-4 sm:right-1 `}
+                    onMouseLeave={() => {
+                      setTimeout(() => {
+                        setUser(!user);
+                      }, 1250);
+                    }}
+                  >
+                    <UserTippy userState={user} />
+                  </div>
+                )}
               </li>
             </ul>
           </nav>
