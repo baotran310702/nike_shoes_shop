@@ -19,7 +19,11 @@ const FeatureItems = ({
             {title}
           </h1>
           <p className="xl:text-sm my-4 text-slate-900">{text}</p>
-          <a href={url} className="flex items-center " target={"_blank"}>
+          <a
+            href={"/list-shoes"}
+            className="flex items-center "
+            target={"_blank"}
+          >
             <button
               type="button"
               className="button-theme bg-slate-900 shadow-slate-900 text-slate-100 py-1.5"

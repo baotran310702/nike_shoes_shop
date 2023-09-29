@@ -2,8 +2,30 @@ import React, { useEffect, useState } from "react";
 import t1img from "../assets/video/t1.jpg";
 import { PencilIcon } from "@heroicons/react/24/solid";
 import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
+import { setHiddenFooter } from "../app/FooterSlice";
+import { setHiddenNav, setStateNav } from "../app/NavbarSlice";
 
 const Profiles = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      setHiddenFooter({
+        isHidden: true,
+      })
+    );
+    dispatch(
+      setHiddenNav({
+        isHidden: true,
+      })
+    );
+    dispatch(
+      setStateNav({
+        navState: true,
+      })
+    );
+  }, []);
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
   const [dob, setDob] = useState("");
@@ -120,14 +142,17 @@ const Profiles = () => {
                     {changePass && (
                       <div className="flex flex-col">
                         <input
+                          type="password"
                           className="border mb-4 border-slate-700 rounded-md text-sm w-1/2 h-8 p-2"
                           placeholder="Type old password..."
                         />
                         <input
+                          type="password"
                           className="border mb-4 border-slate-700 rounded-md text-sm w-1/2 h-8 p-2"
                           placeholder="Type your new password..."
                         />
                         <input
+                          type="password"
                           className="border mb-4 border-slate-700 rounded-md text-sm w-1/2 h-8 p-2"
                           placeholder="Rewrite new password..."
                         />
@@ -142,7 +167,7 @@ const Profiles = () => {
         </div>
         <div className="row-span-1 w-full">
           <div className="grid justify-items-center">
-            <h1 className="text-xl">Purchase History</h1>
+            <h1 className="text-xl mb-8">Purchase History</h1>
             <div className="w-full flex justify-center">
               <div className="w-3/4 md:w-full">
                 <table className="text-sm text-left text-gray-50 w-full border ">
@@ -155,7 +180,7 @@ const Profiles = () => {
                         Color
                       </th>
                       <th scope="col" className="px-6 py-3 w-1/4 ">
-                        Category
+                        Amount
                       </th>
                       <th scope="col" className="px-6 py-3 w-1/4 ">
                         Price
@@ -164,11 +189,11 @@ const Profiles = () => {
                   </thead>
                   <tbody className="text-gray-800">
                     <tr className="bg-white border-b ">
-                      <th scope="row" className="px-6 py-4 font-medium ">
+                      <th scope="row" className="px-6 py-4 font-medium flex ">
                         Apple MacBook Pro 17"
                       </th>
                       <td className="px-6 py-4">Silver</td>
-                      <td className="px-6 py-4">Laptop</td>
+                      <td className="px-6 py-4">8</td>
                       <td className="px-6 py-4">$2999</td>
                     </tr>
                   </tbody>

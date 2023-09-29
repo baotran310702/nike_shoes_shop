@@ -15,9 +15,12 @@ import {
 } from "../app/NavbarSlice";
 import { Link } from "react-router-dom";
 import UserTippy from "./UserTippy/UserTippy";
+import img from "../assets/1.png";
+import ItemResult from "./utils/ItemResult";
 
 const Navbar = () => {
   const [navState, setNavState] = useState(false);
+  const [showResult, setShowResult] = useState(false);
   const [user, setUser] = useState(false);
   const dispatch = useDispatch();
   const isCheckout = useSelector(currentNavState);
@@ -82,23 +85,67 @@ const Navbar = () => {
             </div>
             <ul className="flex items-center justify-center gap-2">
               <li className="grid items-center">
-                <div
-                  className={`flex items-center border px-2 rounded-2xl ${
-                    navState && "border-slate-700"
-                  }`}
-                >
-                  <MagnifyingGlassIcon
-                    className={`icon-style mr-1 && ${
-                      navState && "text-slate-900 transition-all duration-300 "
+                <div className="relative">
+                  <div
+                    className={`flex items-center border px-2 rounded-2xl ${
+                      navState && "border-slate-700"
                     }`}
-                  />
-                  <input
-                    className={`outline-none w-56 md:w-48 sm:w-12 h-10 rounded-xl bg-transparent ${
-                      navState ? "text-slate-900" : "text-slate-100"
-                    } `}
-                    type="text"
-                    placeholder="Search..."
-                  />
+                  >
+                    <MagnifyingGlassIcon
+                      className={`icon-style mr-1 && ${
+                        navState &&
+                        "text-slate-900 transition-all duration-300 "
+                      }`}
+                    />
+                    <input
+                      className={`outline-none w-56 md:w-48 sm:w-12 h-10 rounded-xl bg-transparent ${
+                        navState ? "text-slate-900" : "text-slate-100"
+                      } `}
+                      type="text"
+                      placeholder="Search..."
+                      onChange={(e) => {
+                        if (e.target.value != "") {
+                          setShowResult(true);
+                        } else {
+                          setShowResult(false);
+                        }
+                      }}
+                    />
+                  </div>
+                  {showResult && (
+                    <div
+                      className="absolute mt-2 w-full bg-white rounded-lg "
+                      onMouseLeave={() => {
+                        setTimeout(() => {
+                          setShowResult(false);
+                        }, 1000);
+                      }}
+                    >
+                      <ItemResult
+                        img={img}
+                        title={"Nike Addapt 3.0"}
+                        price={"100$"}
+                      />
+                      <ItemResult
+                        img={img}
+                        title={"Nike Addapt 3.0"}
+                        price={"100$"}
+                      />
+                      <ItemResult
+                        img={img}
+                        title={"Nike Addapt 3.0"}
+                        price={"100$"}
+                      />
+                      <div className="flex justify-center align-middle">
+                        <a
+                          href="/list-shoes"
+                          className="text-sky-700 text-xs mb-1 cursor-pointer underline "
+                        >
+                          Show more
+                        </a>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </li>
               <li className="grid items-center">
@@ -148,13 +195,7 @@ const Navbar = () => {
                     onMouseLeave={() => {
                       setTimeout(() => {
                         setUser(!user);
-                      }, 1250);
-                    }}
-                    onBlur={() => {
-                      console.log("component blur");
-                      setTimeout(() => {
-                        setUser(!user);
-                      }, 1250);
+                      }, 1000);
                     }}
                   >
                     <UserTippy userState={user} />

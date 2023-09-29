@@ -118,4 +118,10 @@
   .size-shoes {
     @apply text-lg border border-slate-300 px-12 py-2 m-2 cursor-pointer hover:border-slate-950;
   }
+
+  /*items-search*/
+
+  .items-search {
+    @apply flex justify-between rounded-lg p-2 m-2 cursor-pointer hover:bg-slate-200;
+  }
 }
