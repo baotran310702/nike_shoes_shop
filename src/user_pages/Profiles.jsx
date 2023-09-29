@@ -70,23 +70,24 @@ const Profiles = () => {
                 </button>
                 <div className="leading-10 w-full">
                   <input
-                    className="text-3xl font-semibold outline-transparent "
+                    className="text-3xl font-semibold outline-transparent border-b focus:border-sky-800 py-2 my-2"
                     defaultValue={"Lee Sang Hyeok"}
                     onChange={onChangeName}
                     readOnly={false}
                   ></input>
                   <h2>
-                    Age{" "}
+                    Age:{" "}
                     <input
-                      className="outline-transparent"
+                      className="outline-transparent border-b focus:border-sky-800"
                       defaultValue={"27"}
                       onChange={onChangeAge}
+                      placeholder="age..."
                     ></input>
                   </h2>
                   <div>
                     Dob{" "}
                     <input
-                      className="border-opacity-95 rounded-lg border-sky-600"
+                      className="border-opacity-95 rounded-lg "
                       defaultValue={"2000-01-01"}
                       type="date"
                       onChange={onChangeDob}
@@ -95,15 +96,15 @@ const Profiles = () => {
                   <div>
                     Email:{" "}
                     <input
-                      className="outline-transparent"
-                      defaultValue={"leesanghyeok@gmail.com"}
+                      className="outline-transparent border-b focus:border-sky-800 "
+                      defaultValue={"leesanghyeo@gmail.com"}
                       onChange={onChangeEmail}
                     ></input>
                   </div>
                   <div>
                     Phone:{" "}
                     <input
-                      className="outline-transparent"
+                      className="outline-transparent border-b focus:border-sky-800"
                       defaultValue={"0999 xxx xxx"}
                       onChange={onChangePhone}
                     ></input>
@@ -139,12 +140,41 @@ const Profiles = () => {
           </div>
           <div className="col-span-1"></div>
         </div>
-        <div className="row-span-1 flex  justify-center items-start">
+        <div className="row-span-1 w-full">
           <div className="grid justify-items-center">
             <h1 className="text-xl">Purchase History</h1>
-            <h1 className="text-sm">
-              No transaction was made from this acccount
-            </h1>
+            <div className="w-full flex justify-center">
+              <div className="w-3/4 md:w-full">
+                <table className="text-sm text-left text-gray-50 w-full border ">
+                  <thead className="text-xs text-gray-700 uppercase bg-gray-50 border">
+                    <tr className="">
+                      <th scope="col" className="px-6 py-3 w-1/4 ">
+                        Product name
+                      </th>
+                      <th scope="col" className="px-6 py-3 w-1/4 ">
+                        Color
+                      </th>
+                      <th scope="col" className="px-6 py-3 w-1/4 ">
+                        Category
+                      </th>
+                      <th scope="col" className="px-6 py-3 w-1/4 ">
+                        Price
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-gray-800">
+                    <tr className="bg-white border-b ">
+                      <th scope="row" className="px-6 py-4 font-medium ">
+                        Apple MacBook Pro 17"
+                      </th>
+                      <td className="px-6 py-4">Silver</td>
+                      <td className="px-6 py-4">Laptop</td>
+                      <td className="px-6 py-4">$2999</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>

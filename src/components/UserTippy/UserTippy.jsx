@@ -38,7 +38,7 @@ const UserTippy = ({ userState }) => {
               <p className="ml-2">User Information</p>
             </div>
           </Link>
-          <Link className="w-full" path="/login">
+          <Link className="w-full" to="/login">
             <div
               className={`flex col-span-1text-black hover:bg-slate-200 row-span-1 w-full rounded-md py-2 px-2  cursor-pointer`}
             >
