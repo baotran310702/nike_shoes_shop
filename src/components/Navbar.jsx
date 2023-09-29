@@ -114,7 +114,7 @@ const Navbar = () => {
                   </div>
                   {showResult && (
                     <div
-                      className="absolute mt-2 w-full bg-white rounded-lg "
+                      className="absolute mt-2 w-full shadow-lg shadow-slate-700 bg-white rounded-lg "
                       onMouseLeave={() => {
                         setTimeout(() => {
                           setShowResult(false);
