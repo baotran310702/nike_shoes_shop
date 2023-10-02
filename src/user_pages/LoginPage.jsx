@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import nikeshoe from "../assets/sneaker.png";
 import logo from "../assets/logo.png";
-
 import { LoginForm } from "../components";
 import { useDispatch } from "react-redux";
 import { setHiddenNav } from "../app/NavbarSlice";
@@ -9,6 +8,7 @@ import { setHiddenFooter } from "../app/FooterSlice";
 
 const LoginPage = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(
       setHiddenNav({
@@ -20,7 +20,7 @@ const LoginPage = () => {
         isHidden: false,
       })
     );
-  });
+  }, []);
 
   return (
     <main className="flex flex-col gap-16 relative ">

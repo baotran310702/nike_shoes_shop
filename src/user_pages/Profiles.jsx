@@ -29,13 +29,7 @@ const Profiles = () => {
 
   const userProfile = useSelector(currentUser);
 
-  const addNewProd = () => {
-    console.log(story.news);
-
-    topratesales.items.forEach((item) => {
-      createProduct(item);
-    });
-  };
+  const addNewProd = () => {};
 
   useEffect(() => {
     dispatch(
@@ -86,7 +80,6 @@ const Profiles = () => {
   };
 
   const onSaveChange = () => {
-    addNewProd();
     toast.success("Save Change Successfully!");
   };
 

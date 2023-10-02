@@ -17,14 +17,45 @@ import { Link } from "react-router-dom";
 import UserTippy from "./UserTippy/UserTippy";
 import img from "../assets/1.png";
 import ItemResult from "./utils/ItemResult";
+import { searchProducts } from "../utils/services";
+import Spinner from "./utils/Spinner";
 
 const Navbar = () => {
   const [navState, setNavState] = useState(false);
   const [showResult, setShowResult] = useState(false);
   const [user, setUser] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const dispatch = useDispatch();
   const isCheckout = useSelector(currentNavState);
   const isHidden = useSelector(currentHidden);
+
+  const [result, setResult] = useState([]);
+
+  var timeoutId;
+
+  const handleSearch = (e) => {
+    if (e.target.value == "") {
+      setIsLoading(false);
+    }
+
+    if (e.target.value != "") {
+      setIsLoading(true);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+
+      timeoutId = setTimeout(async () => {
+        const res = await searchProducts(e.target.value);
+        console.log(res);
+        setResult(res);
+        setIsLoading(false);
+        setShowResult(true);
+      }, 1250);
+    } else {
+      setShowResult(false);
+    }
+  };
 
   const hideCart = () => {
     dispatch(setCloseCart(false));
@@ -59,9 +90,11 @@ const Navbar = () => {
     setNavState(isCheckout);
 
     return () => {
+      setUser(false);
       window.removeEventListener("scroll", onNavScroll);
     };
   }, [isCheckout]);
+
   return (
     <>
       {isHidden && (
@@ -102,14 +135,9 @@ const Navbar = () => {
                       } `}
                       type="text"
                       placeholder="Search..."
-                      onChange={(e) => {
-                        if (e.target.value != "") {
-                          setShowResult(true);
-                        } else {
-                          setShowResult(false);
-                        }
-                      }}
+                      onChange={handleSearch}
                     />
+                    {isLoading && <Spinner />}
                   </div>
                   {showResult && (
                     <div
@@ -120,21 +148,10 @@ const Navbar = () => {
                         }, 1000);
                       }}
                     >
-                      <ItemResult
-                        img={img}
-                        title={"Nike Addapt 3.0"}
-                        price={"100$"}
-                      />
-                      <ItemResult
-                        img={img}
-                        title={"Nike Addapt 3.0"}
-                        price={"100$"}
-                      />
-                      <ItemResult
-                        img={img}
-                        title={"Nike Addapt 3.0"}
-                        price={"100$"}
-                      />
+                      {result?.map((item, index) => (
+                        <ItemResult key={index} item={item} />
+                      ))}
+
                       <div className="flex justify-center align-middle">
                         <a
                           href="/list-shoes"

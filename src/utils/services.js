@@ -53,6 +53,13 @@ export const getProducts = async () => {
   return res.data;
 };
 
+export const searchProducts = async (keyword) => {
+  const res = await api.get("api/Product/searchProduct", {
+    params: { keyword: keyword },
+  });
+  return res.data;
+};
+
 //Story
 
 export const getStory = async () => {

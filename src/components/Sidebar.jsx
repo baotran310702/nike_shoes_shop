@@ -42,7 +42,7 @@ const Sidebar = () => {
         <div
           className={`${
             !IsAtEnd
-              ? "fixed md:absolute grid grid-cols-1 lg:flex items-center justify-items-start w-1/5 lg:w-screen h-auto lg:h-16 md:h-12 gap-1 p-4 shadow shadow-slate-600 text-slate-800 overflow-x-scroll scroll-smooth scroll-hidden "
+              ? "fixed md:absolute grid grid-cols-1 lg:flex items-center justify-items-start w-1/5 lg:w-screen h-auto lg:h-16 md:h-12 gap-1 p-4 shadow-lg shadow-slate-600 text-slate-800 overflow-x-scroll scroll-smooth scroll-hidden "
               : "relative grid grid-cols-1 lg:flex items-center justify-items-start w-full lg:w-screen h-auto lg:h-16 md:h-12 gap-1 p-4 shadow shadow-slate-600 text-slate-800 overflow-x-scroll scroll-smooth scroll-hidden "
           }`}
         >
@@ -69,22 +69,6 @@ const Sidebar = () => {
           <div className="side-items">
             <CubeIcon className="icon-sidebar" />
             Sporty Style
-          </div>
-          <div className="side-items">
-            <HashtagIcon className="icon-sidebar" />
-            Fashion Style
-          </div>
-          <div className="font-semibold text-xl flex justify-center items-center">
-            <FireIcon className="w-6 h-6 mr-1" />
-            Exploring
-          </div>
-          <div className="side-items">
-            <HashtagIcon className="icon-sidebar" />
-            Fashion Style
-          </div>
-          <div className="side-items">
-            <HashtagIcon className="icon-sidebar" />
-            Fashion Style
           </div>
           <div className="side-items">
             <HashtagIcon className="icon-sidebar" />
