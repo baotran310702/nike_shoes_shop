@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setHiddenFooter } from "../app/FooterSlice";
 import { setHiddenNav, setStateNav } from "../app/NavbarSlice";
 import Sidebar from "../components/Sidebar";
-import { Sales } from "../components";
 import { topratesales } from "../data/data";
 import Items from "../components/utils/Items";
 import { ArrowDownIcon, ArrowUpIcon } from "@heroicons/react/24/solid";
+import { currentProducts } from "../app/ProductSlice";
 
 const ListShoes = () => {
   const [arrow, setArrow] = useState(false);
+
+  const products = useSelector(currentProducts);
+  console.log("product listshoes:", products);
+  console.log("top rate sales:", topratesales);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -83,7 +87,7 @@ const ListShoes = () => {
                 <div
                   className={`grid items-center justify-items-center grid-cols-4 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5 lg:gap-3 mt-7`}
                 >
-                  {topratesales.items?.map((item, i) => (
+                  {products?.map((item, i) => (
                     <Items {...item} key={i} />
                   ))}
                 </div>

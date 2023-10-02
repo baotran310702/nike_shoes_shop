@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { ExclamationCircleIcon } from "@heroicons/react/24/solid";
 import { authen, login } from "../utils/services";
+import { setUserProfile } from "../app/UserSlice.js";
 
 function LoginForm() {
   const [userName, setUsername] = useState("");
@@ -12,6 +13,7 @@ function LoginForm() {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   //Validate Username
   const handleRegex = (e) => {
@@ -19,7 +21,7 @@ function LoginForm() {
     if (regex.test(userName)) {
       setRegexEmail(true);
     } else {
-      setRegexEmail(false);
+      setRegexEmail(true);
     }
   };
 
@@ -38,6 +40,7 @@ function LoginForm() {
     ~login(userName, password)
       .then((res) => {
         localStorage.setItem("token", res.data.token);
+        dispatch(setUserProfile(res.data.userData));
         navigate("/");
       })
       .catch((res) => {
@@ -110,7 +113,7 @@ function LoginForm() {
                   type="password"
                   name="password"
                   id="password"
-                  placeholder="••••••••"
+                  placeholder="••••••••••••••••"
                   className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required=""
                   value={password}

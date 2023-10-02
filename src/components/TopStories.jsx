@@ -4,8 +4,11 @@ import { Splide, SplideSlide } from "@splidejs/react-splide";
 import "@splidejs/react-splide/css";
 import { HeartIcon, HashtagIcon } from "@heroicons/react/24/solid";
 import { ClockIcon } from "@heroicons/react/24/outline";
+import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
+import { currentStoriesInfor } from "../app/StorySlice";
 
-const TopStories = ({ endpoint: { title, news } }) => {
+const TopStories = () => {
   const splideOptions = {
     perPage: 4,
     perMove: 1,
@@ -23,10 +26,12 @@ const TopStories = ({ endpoint: { title, news } }) => {
       425: { perPage: 1 },
     },
   };
+
+  const news = useSelector(currentStoriesInfor);
   return (
     <>
       <div className="nike-container mb-11">
-        <Title title={title} />
+        <Title title="Top Stories" />
         <div className="mt-7">
           <Splide options={splideOptions}>
             {news?.map((val, i) => (

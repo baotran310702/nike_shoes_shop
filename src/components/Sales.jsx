@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Title from "./utils/Title";
 import Items from "./utils/Items";
 
-const Sales = ({ ifPopular, endpoint: { title, items } }) => {
+const Sales = ({ ifPopular, items }) => {
+  if (ifPopular) {
+    console.log("popular ", items);
+  } else {
+    console.log("top rate ", items);
+  }
   return (
     <>
       <div className="nike-container">
-        <Title title={title} />
+        <Title title={`${ifPopular ? "Popular Sales" : "Top Rate Sales"}`} />
         <div
           className={`grid items-center justify-items-center ${
             ifPopular
@@ -15,7 +20,7 @@ const Sales = ({ ifPopular, endpoint: { title, items } }) => {
           } gap-7 lg:gap-5 mt-7`}
         >
           {items?.map((item, i) => (
-            <Items {...item} key={i} ifPopular={ifPopular} />
+            <Items {...item} key={i} typePopular={ifPopular} />
           ))}
         </div>
       </div>

@@ -8,23 +8,6 @@ import vcover1 from "../assets/video/vcover1.png";
 import vcover2 from "../assets/video/vcover2.png";
 import vcover3 from "../assets/video/vcover3.png";
 
-import psale1 from "../assets/nike-air-red.png";
-import psale2 from "../assets/nike-adapt-bb.png";
-import psale3 from "../assets/nike-adapt-bb-smart.png";
-
-import product1 from "../assets/product1.png";
-import product2 from "../assets/product2.png";
-import product3 from "../assets/product3.png";
-import product4 from "../assets/product4.png";
-import product5 from "../assets/product5.png";
-import product6 from "../assets/product6.png";
-import product7 from "../assets/product7.png";
-import product8 from "../assets/product8.png";
-import product9 from "../assets/product9.png";
-import product10 from "../assets/product10.png";
-import product11 from "../assets/product11.png";
-import product12 from "../assets/product12.png";
-
 import facebook from "../assets/facebook.svg";
 import instagram from "../assets/instagram.svg";
 import twitter from "../assets/twitter.svg";
@@ -59,7 +42,7 @@ const popularsales = {
       text: "MEN Running Shoes",
       rating: "4.9",
       btn: "Buy Now",
-      img: psale2,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088965/product12_smxvcu.png",
       price: "200",
       color: "from-blue-600 to-blue-500",
       shadow: "shadow-lg shadow-blue-500",
@@ -70,7 +53,7 @@ const popularsales = {
       text: "MEN Running Shoes",
       rating: "4.5",
       btn: "Buy Now",
-      img: psale1,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088965/product6_yelkgt.png",
       price: "200",
       color: "from-red-500 to-rose-500",
       shadow: "shadow-lg shadow-rose-500",
@@ -81,7 +64,7 @@ const popularsales = {
       text: "MEN Running Shoes",
       rating: "5+",
       btn: "Buy Now",
-      img: psale3,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088965/sneaker_t2yqzm.png",
       price: "200",
       color: "from-violet-500 to-indigo-500",
       shadow: "shadow-lg shadow-violet-500",
@@ -116,7 +99,7 @@ const topratesales = {
       text: "MEN Running Shoes",
       rating: "5+",
       btn: "Buy Now",
-      img: product7,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088965/product10_a7rm5f.png",
       price: "150",
       color: "from-sky-600 to-indigo-600",
       shadow: "shadow-lg shadow-blue-500",
@@ -127,7 +110,7 @@ const topratesales = {
       text: "MEN Running Shoes",
       rating: "5+",
       btn: "Buy Now",
-      img: product2,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088965/product11_wzty4j.png",
       price: "150",
       color: "from-green-500 to-emerald-500",
       shadow: "shadow-lg shadow-green-500",
@@ -138,7 +121,7 @@ const topratesales = {
       text: "MEN Running Shoes",
       rating: "5+",
       btn: "Buy Now",
-      img: product3,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088965/product1_r1bhii.png",
       price: "150",
       color: "from-red-500 to-rose-500",
       shadow: "shadow-lg shadow-rose-500",
@@ -149,7 +132,7 @@ const topratesales = {
       text: "MEN Running Shoes",
       rating: "5+",
       btn: "Buy Now",
-      img: product4,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088964/product9_rkbpqf.png",
       price: "150",
       color: "from-orange-500 to-amber-500",
       shadow: "shadow-lg shadow-orange-500",
@@ -160,7 +143,7 @@ const topratesales = {
       text: "MEN Running Shoes",
       rating: "5+",
       btn: "Buy Now",
-      img: product5,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088964/product8_n1e93q.png",
       price: "150",
       color: "from-gray-900 to-yellow-500",
       shadow: "shadow-lg shadow-yellow-500",
@@ -171,7 +154,7 @@ const topratesales = {
       text: "MEN Running Shoes",
       rating: "5+",
       btn: "Buy Now",
-      img: product6,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088964/product5_lcaaid.png",
       price: "150",
       color: "from-blue-500 to-cyan-500",
       shadow: "shadow-lg shadow-cyan-500",
@@ -182,7 +165,7 @@ const topratesales = {
       text: "MEN Running Shoes",
       rating: "5+",
       btn: "Buy Now",
-      img: product1,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088964/product7_j4vc02.png",
       price: "150",
       color: "from-yellow-500 to-yellow-500",
       shadow: "shadow-lg shadow-yellow-500",
@@ -193,7 +176,7 @@ const topratesales = {
       text: "MEN Running Shoes",
       rating: "5+",
       btn: "Buy Now",
-      img: product9,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088963/product4_wfqvyc.png",
       price: "150",
       color: "from-[#936550] to-orange-900",
       shadow: "shadow-lg shadow-orange-800",
@@ -204,7 +187,7 @@ const topratesales = {
       text: "MEN Running Shoes",
       rating: "5+",
       btn: "Buy Now",
-      img: product10,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088963/nike-adapt-bb-smart_gwyn9f.png",
       price: "150",
       color: "from-indigo-700 to-indigo-700",
       shadow: "shadow-lg shadow-indigo-500",
@@ -215,7 +198,7 @@ const topratesales = {
       text: "MEN Running Shoes",
       rating: "5+",
       btn: "Buy Now",
-      img: product12,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088963/product3_i5xidt.png",
       price: "150",
       color: "from-green-600 to-lime-500",
       shadow: "shadow-lg shadow-lime-500",
@@ -226,7 +209,7 @@ const topratesales = {
       text: "MEN Running Shoes",
       rating: "5+",
       btn: "Buy Now",
-      img: product11,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088963/nike-adapt-bb_oncmer.png",
       price: "150",
       color: "from-slate-900 to-black",
       shadow: "shadow-lg shadow-black",
@@ -237,7 +220,7 @@ const topratesales = {
       text: "MEN Running Shoes",
       rating: "5+",
       btn: "Buy Now",
-      img: product8,
+      img: "https://res.cloudinary.com/dxzgjvst0/image/upload/v1696088962/hightlightimg_ornkif.png",
       price: "150",
       color: "from-blue-900 to-blue-500",
       shadow: "shadow-lg shadow-blue-500",

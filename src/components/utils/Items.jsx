@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { setItems } from "../../app/ItemsSlice";
 
 const Items = ({
-  ifPopular,
+  typePopular,
   id,
   color,
   shadow,
@@ -37,7 +37,7 @@ const Items = ({
     <>
       <div
         className={`relative bg-gradient-to-b from-blue-900 to-blue-500 shadow-lg shadow-blue-500 grid items-center ${
-          ifPopular ? "justify-items-start" : "justify-items-center"
+          typePopular ? "justify-items-start" : "justify-items-center"
         } rounded-xl px-5 py-6
         transition-all duration-700 ease-in-out w-full hover:scale-105 z-20`}
         onClick={(e) => {
@@ -47,7 +47,7 @@ const Items = ({
       >
         <div
           className={`grid items-center ${
-            ifPopular ? "justify-items-start" : "justify-items-center"
+            typePopular ? "justify-items-start" : "justify-items-center"
           }`}
         >
           <h1 className="text-slate-200 text-xl lg:text-lg md:text-base font-medium filter drop-shadow">
@@ -97,14 +97,14 @@ const Items = ({
         </div>
         <div
           className={`flex items-center ${
-            ifPopular ? "absolute top-5 right-2" : "justify-center"
+            typePopular ? "absolute top-5 right-2" : "justify-center"
           }`}
         >
           <img
             src={img}
             alt={`img/item-img/${id}`}
             className={`transitions-theme hover:-rotate-12 ${
-              ifPopular
+              typePopular
                 ? "h-auto w-64 lg:w-56 md:w-48 -rotate-[35deg]"
                 : "h-36 w-64 "
             }`}

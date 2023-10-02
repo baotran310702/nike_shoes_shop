@@ -1,13 +1,41 @@
 import React, { useEffect, useState } from "react";
 import t1img from "../assets/video/t1.jpg";
-import { PencilIcon } from "@heroicons/react/24/solid";
+import {
+  CheckCircleIcon,
+  ExclamationCircleIcon,
+  PencilIcon,
+  XCircleIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/solid";
 import toast from "react-hot-toast";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setHiddenFooter } from "../app/FooterSlice";
 import { setHiddenNav, setStateNav } from "../app/NavbarSlice";
+import {
+  heroapi,
+  popularsales,
+  topratesales,
+  sneaker,
+  highlight,
+  story,
+  footerAPI,
+} from "../data/data.js";
+import { createProduct, createStory } from "../utils/services";
+import {} from "@heroicons/react/24/solid";
+import { currentUser } from "../app/UserSlice";
 
 const Profiles = () => {
   const dispatch = useDispatch();
+
+  const userProfile = useSelector(currentUser);
+
+  const addNewProd = () => {
+    console.log(story.news);
+
+    topratesales.items.forEach((item) => {
+      createProduct(item);
+    });
+  };
 
   useEffect(() => {
     dispatch(
@@ -26,12 +54,12 @@ const Profiles = () => {
       })
     );
   }, []);
-  const [name, setName] = useState("");
-  const [age, setAge] = useState("");
-  const [dob, setDob] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
+  const [name, setName] = useState(userProfile.fullName);
+  const [age, setAge] = useState(userProfile.age);
+  const [dob, setDob] = useState(userProfile.dob);
+  const [email, setEmail] = useState(userProfile.email);
+  const [phone, setPhone] = useState(userProfile.phone);
+  const [password, setPassword] = useState(userProfile.password);
   const [changePass, setChangePass] = useState(false);
 
   const onChangePass = () => {
@@ -58,6 +86,7 @@ const Profiles = () => {
   };
 
   const onSaveChange = () => {
+    addNewProd();
     toast.success("Save Change Successfully!");
   };
 
@@ -78,8 +107,8 @@ const Profiles = () => {
                     src={t1img}
                     className="h-full rounded-full object-cover "
                   ></img>
-                  <div className="absolute flex items-center justify-center bg-slate-400  w-12 h-12 right-3 bottom-0 rounded-full cursor-pointer hover:scale-90 transition-all duration-300">
-                    <PencilIcon className="w-8 h-8 text-slate-300" />
+                  <div className="absolute flex items-center justify-center bg-slate-100 w-10 h-10 right-3 bottom-0 rounded-full cursor-pointer active:scale-75 transition-all duration-300">
+                    <PencilIcon className="w-6 h-6 text-slate-900" />
                   </div>
                 </div>
               </div>
@@ -93,7 +122,7 @@ const Profiles = () => {
                 <div className="leading-10 w-full">
                   <input
                     className="text-3xl font-semibold outline-transparent border-b focus:border-sky-800 py-2 my-2"
-                    defaultValue={"Lee Sang Hyeok"}
+                    defaultValue={userProfile.fullName}
                     onChange={onChangeName}
                     readOnly={false}
                   ></input>
@@ -101,7 +130,7 @@ const Profiles = () => {
                     Age:{" "}
                     <input
                       className="outline-transparent border-b focus:border-sky-800"
-                      defaultValue={"27"}
+                      defaultValue={userProfile.age}
                       onChange={onChangeAge}
                       placeholder="age..."
                     ></input>
@@ -110,7 +139,7 @@ const Profiles = () => {
                     Dob{" "}
                     <input
                       className="border-opacity-95 rounded-lg "
-                      defaultValue={"2000-01-01"}
+                      defaultValue={userProfile.dob}
                       type="date"
                       onChange={onChangeDob}
                     ></input>
@@ -119,7 +148,7 @@ const Profiles = () => {
                     Email:{" "}
                     <input
                       className="outline-transparent border-b focus:border-sky-800 "
-                      defaultValue={"leesanghyeo@gmail.com"}
+                      defaultValue={userProfile.email}
                       onChange={onChangeEmail}
                     ></input>
                   </div>
@@ -127,7 +156,7 @@ const Profiles = () => {
                     Phone:{" "}
                     <input
                       className="outline-transparent border-b focus:border-sky-800"
-                      defaultValue={"0999 xxx xxx"}
+                      defaultValue={userProfile.phone}
                       onChange={onChangePhone}
                     ></input>
                   </div>
@@ -167,7 +196,7 @@ const Profiles = () => {
         </div>
         <div className="row-span-1 w-full">
           <div className="grid justify-items-center">
-            <h1 className="text-xl mb-8">Purchase History</h1>
+            <h1 className="text-xl mb-8 font-semibold">Purchase History</h1>
             <div className="w-full flex justify-center">
               <div className="w-3/4 md:w-full">
                 <table className="text-sm text-left text-gray-50 w-full border ">
@@ -177,13 +206,13 @@ const Profiles = () => {
                         Product name
                       </th>
                       <th scope="col" className="px-6 py-3 w-1/4 ">
-                        Color
-                      </th>
-                      <th scope="col" className="px-6 py-3 w-1/4 ">
                         Amount
                       </th>
                       <th scope="col" className="px-6 py-3 w-1/4 ">
                         Price
+                      </th>
+                      <th scope="col" className="px-6 py-3 w-1/4 ">
+                        Status
                       </th>
                     </tr>
                   </thead>
@@ -192,9 +221,15 @@ const Profiles = () => {
                       <th scope="row" className="px-6 py-4 font-medium flex ">
                         Apple MacBook Pro 17"
                       </th>
-                      <td className="px-6 py-4">Silver</td>
+
                       <td className="px-6 py-4">8</td>
                       <td className="px-6 py-4">$2999</td>
+                      <td className="px-6 py-4 flex justify-center">
+                        <CheckCircleIcon className="icon-style mr-1 text-green-500" />
+                        <ExclamationCircleIcon className="icon-style mr-1 text-yellow-400" />
+                        <XCircleIcon className="icon-style mr-1 text-red-600" />
+                        Checking
+                      </td>
                     </tr>
                   </tbody>
                 </table>

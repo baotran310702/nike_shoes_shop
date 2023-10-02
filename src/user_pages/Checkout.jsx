@@ -16,6 +16,10 @@ const Checkout = () => {
   const itemsCart = useSelector(currentCartItems);
   const subTotal = useSelector(currentSumPrice);
 
+  const checkout = () => {
+    console.log("checkout clicked");
+  };
+
   return (
     <>
       <div className="">
@@ -135,6 +139,7 @@ const Checkout = () => {
                 <button
                   type="button"
                   className="button-theme w-3/4 bg-sky-500 font-medium text-lg h-12"
+                  onClick={checkout}
                 >
                   SUBMIT
                 </button>

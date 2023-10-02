@@ -44,7 +44,6 @@ const Navbar = () => {
   const userIconClick = () => {
     setUser(!user);
   };
-  console.log(user);
 
   const onNavScroll = () => {
     if (window.scrollY > 30) {
