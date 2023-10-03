@@ -7,6 +7,8 @@ Currently, two official plugins are available:
 
 # Introduction about my website
 Deployed here: <a href="https://nike-shoes-store-baotran.vercel.app/" target="_blank">nike-shoes-store-baotran.vercel.app</a>
+# Responsive on mobile
+<img src="https://res.cloudinary.com/boyplunger128/image/upload/v1696330297/UI_responsive_dfajzk.png"/>
 
 <h2>Landing page</h2>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799680/shoes_bibt0d.png"/>
@@ -24,5 +26,4 @@ Deployed here: <a href="https://nike-shoes-store-baotran.vercel.app/" target="_b
 <h2>Profiles Page</h2>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1696329043/profiles_lnsan9.png" />
 
-# Responsive on mobile
 
