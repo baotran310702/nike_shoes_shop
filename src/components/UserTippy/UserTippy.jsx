@@ -19,7 +19,7 @@ const UserTippy = ({ userState }) => {
               onClick={onMoveProfiles}
             >
               <IdentificationIcon className={`icon-style text-black`} />
-              <p className="ml-2 text-sm">User Information</p>
+              <p className="ml-2 text-sm">Your Profile</p>
             </div>
           </Link>
 

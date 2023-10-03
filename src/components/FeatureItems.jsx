@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FeatureItems = ({
   ifPopular,
@@ -19,18 +20,14 @@ const FeatureItems = ({
             {title}
           </h1>
           <p className="xl:text-sm my-4 text-slate-900">{text}</p>
-          <a
-            href={"/list-shoes"}
-            className="flex items-center "
-            target={"_blank"}
-          >
+          <Link to={"/list-shoes"} className="flex items-center ">
             <button
               type="button"
               className="button-theme bg-slate-900 shadow-slate-900 text-slate-100 py-1.5"
             >
               {btn}
             </button>
-          </a>
+          </Link>
         </div>
         <div className="flex items-center justify-center max-w-xl relative lg:max-w-none w-full mx-2">
           <img

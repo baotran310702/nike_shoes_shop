@@ -5,15 +5,16 @@ import "@splidejs/react-splide/css";
 import { HeartIcon, HashtagIcon } from "@heroicons/react/24/solid";
 import { ClockIcon } from "@heroicons/react/24/outline";
 import { useDispatch, useSelector } from "react-redux";
-import { useSearchParams } from "react-router-dom";
 import { currentStoriesInfor } from "../app/StorySlice";
 
 const TopStories = () => {
   const splideOptions = {
+    autoplay: true,
+    interval: 1500,
     perPage: 4,
     perMove: 1,
     type: "loop",
-    rewind: true,
+    rewind: "fade",
     keyboard: "global",
     gap: "1rem",
     pagination: false,
