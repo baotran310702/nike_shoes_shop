@@ -8,20 +8,20 @@ Currently, two official plugins are available:
 # Introduction about my website
 Deployed here: <a href="https://nike-shoes-store-baotran.vercel.app/" target="_blank">nike-shoes-store-baotran.vercel.app</a>
 
-<h1>Landing page</h1>
+<h2>Landing page</h2>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799680/shoes_bibt0d.png"/>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799681/shoes1_flx2mt.png"/>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799681/shoes3_mvctdf.png"/>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799681/shoes4_zbpekp.png"/>
-<h1>Login UI</h1>
+<h2>Login UI</h2>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799676/shoes8_txp5lz.png" />
-<h1>Cart</h1>
+<h2>Cart</h2>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799682/shoes5_tf1qcn.png"/>
-<h1>Checkout Page</h1>
+<h2>Checkout Page</h2>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799675/shoes6_i4hiv3.png"/>
-<h1>Products Page</h1>
+<h2>Products Page</h2>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1695799676/shoes7_b1sjf0.png" />
-<h1>Profiles Page</h1>
+<h2>Profiles Page</h2>
 <img src="https://res.cloudinary.com/boyplunger128/image/upload/v1696329043/profiles_lnsan9.png" />
 
 # Responsive on mobile
